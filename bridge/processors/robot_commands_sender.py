@@ -20,7 +20,3 @@ class RobotCommandsSender(BaseProcessor):
         commands = self.commands_reader.read_new()
         for command in commands:
             self.socket.send(command)
-        from datetime import datetime
-        time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        with open("tmp/commands_sender.txt", "a") as f:
-            f.write(time + "\n")
