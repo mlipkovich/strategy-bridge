@@ -6,3 +6,5 @@ venv
 dist/
 __pycache__
 .python-version
+secrets/credentials.sh
+
