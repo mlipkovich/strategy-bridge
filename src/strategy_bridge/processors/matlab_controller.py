@@ -1,14 +1,16 @@
 import attr
 import numpy as np
 
-from bridge.bus import DataReader, DataWriter
-from bridge.common import config
-from bridge.model.referee import RefereeCommand
-from bridge.processors import BaseProcessor
+from strategy_bridge.bus import DataReader, DataWriter
+from strategy_bridge.common import config
+from strategy_bridge.matlab.engine import matlab_engine
+from strategy_bridge.model.referee import RefereeCommand
+from strategy_bridge.processors import BaseProcessor
 
 
+# TODO: Refactor this class and corresponding matlab scripts
 @attr.s(auto_attribs=True)
-class PythonControllerTemplate(BaseProcessor):
+class MatlabController(BaseProcessor):
 
     max_commands_to_persist: int = 20
 
@@ -73,9 +75,14 @@ class PythonControllerTemplate(BaseProcessor):
                 robots_yellow[robot.robot_id + self.TEAM_ROBOTS_MAX_COUNT * 3] = robot.orientation
 
             referee_command = self.get_last_referee_command()
-            rules = [5.0]*32*13
-
-            import struct
-            b = bytes()
-            rules = b.join((struct.pack('d', rule) for rule in rules))
+            rules = await matlab_engine.run_function(
+                "main_func",
+                robots_blue.reshape(self.TEAM_ROBOTS_MAX_COUNT, self.SINGLE_ROBOT_PACKET_SIZE).tolist(),
+                robots_yellow.reshape(self.TEAM_ROBOTS_MAX_COUNT, self.SINGLE_ROBOT_PACKET_SIZE).tolist(),
+                balls.tolist(),
+                field_info.tolist(),
+                [referee_command.state],
+                [referee_command.commandForTeam],
+                [referee_command.isPartOfFieldLeft]
+            )
             self.commands_writer.write(rules)

@@ -1,10 +1,17 @@
+import importlib.resources
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
 
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+def get_project_root() -> Path:
+    with importlib.resources.path("strategy_bridge", "__init__.py") as src_path:
+        path = src_path.parents[2]
+    return path
 
+
+PROJECT_ROOT = get_project_root()
 
 VISION_DETECTIONS_SUBSCRIBE_PORT = 4242
 REFEREE_COMMANDS_SUBSCRIBE_PORT = 4243

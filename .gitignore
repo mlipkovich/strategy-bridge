@@ -3,3 +3,6 @@
 *.log
 *.log.*
 venv
+dist/
+__pycache__
+.python-version

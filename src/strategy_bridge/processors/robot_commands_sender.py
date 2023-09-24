@@ -1,9 +1,9 @@
 import attr
 import zmq
 
-from bridge.bus import DataReader
-from bridge.common import config
-from bridge.processors import BaseProcessor
+from strategy_bridge.bus import DataReader
+from strategy_bridge.common import config
+from strategy_bridge.processors import BaseProcessor
 
 
 @attr.s(auto_attribs=True)

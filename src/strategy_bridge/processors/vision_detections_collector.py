@@ -1,10 +1,10 @@
 import attr
 
-from bridge.bus import DataWriter
-from bridge.common import config
-from bridge.processors import BaseProcessor
-from bridge.pb.messages_robocup_ssl_wrapper_pb2 import SSL_WrapperPacket
-from bridge.zmq.receiver import ZmqReceiver
+from strategy_bridge.bus import DataWriter
+from strategy_bridge.common import config
+from strategy_bridge.processors import BaseProcessor
+from strategy_bridge.pb.messages_robocup_ssl_wrapper_pb2 import SSL_WrapperPacket
+from strategy_bridge.larcmacs.receiver import ZmqReceiver
 
 
 @attr.s(auto_attribs=True)

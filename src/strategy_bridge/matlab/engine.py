@@ -8,7 +8,7 @@ import matlab.engine
 import numpy as np
 from matlab.engine import FutureResult
 
-from bridge.common import config
+from strategy_bridge.common import config
 
 
 @attr.s(auto_attribs=True)

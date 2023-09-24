@@ -1,1 +1,1 @@
-python3.9 main.py
+poetry run python src/strategy_bridge/main.py
