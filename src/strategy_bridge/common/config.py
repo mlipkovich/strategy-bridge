@@ -29,11 +29,11 @@ CONFIG_PATH = os.path.join(PROJECT_ROOT, "conf")
 MATLAB_SCRIPTS_PATH = os.path.join(PROJECT_ROOT, "..", "MLscripts_func_main")
 
 
-def init_logging(log_file_name=LOG_FILE_NAME):
+def init_logging(log_dir=LOG_PATH, log_file_name=LOG_FILE_NAME):
     logging_format = "[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s"
     formatter = logging.Formatter(logging_format)
 
-    file_handler = TimedRotatingFileHandler(filename=os.path.join(LOG_PATH, log_file_name), when='W0')
+    file_handler = TimedRotatingFileHandler(filename=os.path.join(log_dir, log_file_name), when='W0')
     file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
 
