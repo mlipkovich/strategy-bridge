@@ -31,7 +31,3 @@ class RefereeCommandsCollector(BaseProcessor):
             isPartOfFieldLeft=parsed_message['is_left'],
         )
         self.records_writer.write(command)
-        from datetime import datetime
-        time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        with open("tmp/referee_collector.txt", "a") as f:
-            f.write(time + "\n")
