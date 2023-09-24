@@ -2,7 +2,7 @@ import typing
 
 import attr
 
-from bridge.bus import data_bus, Record
+from strategy_bridge.bus import data_bus, Record
 
 
 @attr.s(auto_attribs=True)

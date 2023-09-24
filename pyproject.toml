@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "strategy-bridge"
+version = "0.1.1"
+description = ""
+authors = [
+    "Mikhail Lipkovich <lipkovich.mikhail@gmail.com>"
+]
+readme = "README.md"
+packages = [{include = "strategy_bridge", from = "src"}]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+attrs = "^23.1.0"
+numpy = "^1.26.0"
+protobuf = "3.19.1"
+pyzmq = "^25.1.1"
+matlab = { version = "^0.1", optional = true }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

@@ -1,9 +1,9 @@
-from bridge.bus import data_bus
-from bridge.common import config
-from bridge.processors import VisionDetectionsCollector, RobotCommandsSender
-from bridge.processors.matlab_controller import MatlabController
-from bridge.processors.referee_commands_collector import RefereeCommandsCollector
-from bridge.runner import Runner
+from strategy_bridge.bus import data_bus
+from strategy_bridge.common import config
+from strategy_bridge.processors import VisionDetectionsCollector, RobotCommandsSender
+from strategy_bridge.processors.matlab_controller import MatlabController
+from strategy_bridge.processors.referee_commands_collector import RefereeCommandsCollector
+from strategy_bridge.runner import Runner
 
 
 config.init_logging()

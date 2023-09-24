@@ -3,7 +3,7 @@ import typing
 
 from collections import deque
 
-from bridge.bus.record import Record
+from strategy_bridge.bus.record import Record
 
 
 @attr.s(auto_attribs=True)

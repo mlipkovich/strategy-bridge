@@ -2,11 +2,11 @@ import json
 
 import attr
 
-from bridge.bus import DataWriter
-from bridge.common import config
-from bridge.model.referee import RefereeCommand
-from bridge.processors import BaseProcessor
-from bridge.zmq.receiver import ZmqReceiver
+from strategy_bridge.bus import DataWriter
+from strategy_bridge.common import config
+from strategy_bridge.model.referee import RefereeCommand
+from strategy_bridge.processors import BaseProcessor
+from strategy_bridge.larcmacs.receiver import ZmqReceiver
 
 
 @attr.s(auto_attribs=True)

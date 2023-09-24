@@ -4,7 +4,7 @@ import typing
 
 import attr
 
-from bridge.processors import BaseProcessor
+from strategy_bridge.processors import BaseProcessor
 
 
 @attr.s(auto_attribs=True, kw_only=True)
